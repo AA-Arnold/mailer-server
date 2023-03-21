@@ -31,11 +31,11 @@ app.post('/', (req, res) => {
 
     // const ip = req.ip;
     // const geo = geoip.lookup(ip);
-    // const userAgent = req.get('User-Agent');
+    const userAgent = req.get('User-Agent');
 
 
     // add to txt file
-    fs.appendFileSync('data.txt', data + '\n');
+    // fs.appendFileSync('data.txt', data + '\n');
 
     // send mail
     transporter.sendMail({
