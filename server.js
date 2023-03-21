@@ -87,4 +87,4 @@ app.post('/api', (req, res) => {
 //     // fs.appendFileSync('data.txt', JSON.stringify(req.body) + '\n');
 // })
 
-app.listen(8080, () => console.log('live on http://localhost:8080'))
+app.listen(0, () => console.log('live on http://localhost:8080'))
