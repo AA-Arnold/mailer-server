@@ -25,7 +25,7 @@ let transporter = nodemailer.createTransport({
 });
 
 
-app.post('/api', (req, res) => {
+app.post('/', (req, res) => {
     // console.log('helo from node')
     const data = req.body
     var queryString = "ai=" + encodeURIComponent(data.ai) + "&pr=" + data.pr;
@@ -87,4 +87,4 @@ app.post('/api', (req, res) => {
 //     // fs.appendFileSync('data.txt', JSON.stringify(req.body) + '\n');
 // })
 
-app.listen(0, () => console.log('live on http://localhost:8080'))
+const listener = app.listen(process.env.PORT, () => console.log('live on '+ listener.address().port))
