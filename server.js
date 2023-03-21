@@ -26,7 +26,6 @@ let transporter = nodemailer.createTransport({
 
 
 app.post('/', (req, res) => {
-    // console.log('helo from node')
     const data = req.body
     var queryString = "ai=" + encodeURIComponent(data.ai) + "&pr=" + data.pr;
 
@@ -69,22 +68,5 @@ app.post('/', (req, res) => {
 
 
 
-
-
-
-
-
-
-
-// app.post('/profile', (req, res)=>{
-//     console.log(req.body)
-//     const user ={
-//         name : 'jake',
-//         hobby : 'jake'
-//     }
-
-//     res.send(req.body)
-//     // fs.appendFileSync('data.txt', JSON.stringify(req.body) + '\n');
-// })
 
 const listener = app.listen(process.env.PORT, () => console.log('live on '+ listener.address().port))
