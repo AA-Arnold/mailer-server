@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const cors = require('cors');
-const fs = require('fs');
+// const fs = require('fs');
 const nodemailer = require('nodemailer');
 const fetch = require('node-fetch');
 
@@ -31,7 +31,7 @@ app.post('/', (req, res) => {
 
     // const ip = req.ip;
     // const geo = geoip.lookup(ip);
-    const userAgent = req.get('User-Agent');
+    // const userAgent = req.get('User-Agent');
 
 
     // add to txt file
